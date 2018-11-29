@@ -4,7 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-  <include layout="@layout/__picker_toolbar" />
+  <FrameLayout
+      android:id="@+id/fl_title_root"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <include layout="@layout/__picker_toolbar" />
+
+  </FrameLayout>
 
   <FrameLayout
       android:id="@+id/container"

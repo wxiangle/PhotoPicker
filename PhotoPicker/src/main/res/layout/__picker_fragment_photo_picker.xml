@@ -24,6 +24,8 @@
             android:text="@string/__picker_all_image"
             android:layout_width="wrap_content"
             android:gravity="center"
+            android:drawableRight="@drawable/_picker_fold"
+            android:drawablePadding="3dp"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.ActionButton"
             />

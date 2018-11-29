@@ -71,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    findViewById(R.id.btn_ui).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        PhotoPicker.builder()
+                .setPhotoCount(9)
+                .setGridColumnCount(4)
+                .setCustomeView(new CustomMade())
+                .start(MainActivity.this);
+      }
+    });
+
     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,
             new RecyclerItemClickListener.OnItemClickListener() {
       @Override
