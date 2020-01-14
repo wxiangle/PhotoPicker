@@ -131,7 +131,7 @@ public class PhotoPickerActivity extends AppCompatActivity implements ISelectedA
             menuIsInflated = true;
             FrameLayout flTitleRoout = findViewById(R.id.fl_title_root);
             flTitleRoout.removeAllViews();
-            flTitleRoout.addView(iCustomeMadeUi.titleLayout(this,this));
+            flTitleRoout.addView(iCustomeMadeUi.titleLayout(this, this));
         } else {
             Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(mToolbar);
@@ -238,7 +238,6 @@ public class PhotoPickerActivity extends AppCompatActivity implements ISelectedA
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -259,7 +258,7 @@ public class PhotoPickerActivity extends AppCompatActivity implements ISelectedA
 
     @Override
     public void back() {
-        finish();
+        onBackPressed();
     }
 
     @Override
