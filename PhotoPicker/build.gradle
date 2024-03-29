@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.wxiangle'
 android {
   compileSdkVersion 33
   buildToolsVersion '27.0.3'
@@ -31,24 +34,13 @@ dependencies {
   implementation "com.android.support:recyclerview-v7:$supportLibVersion"
   implementation "com.android.support:support-annotations:$supportLibVersion"
   implementation "com.github.bumptech.glide:glide:4.9.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
 }
 
-afterEvaluate {
-  publishing {
-    publications {
-      release(MavenPublication) {
-        from components.findByName('release')
-        groupId = 'com.github.wxiangle'
-        artifactId = 'PhotoPicker'
-        version = '1.4'
-      }
-    }
-  }
-}
+
 
 //apply plugin: 'com.novoda.bintray-release'
 //publish {
