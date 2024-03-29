@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'maven-publish'
 android {
   compileSdkVersion 33
   buildToolsVersion '27.0.3'
@@ -16,6 +16,12 @@ android {
   lintOptions {
     abortOnError false
   }
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
 }
 
 dependencies {
@@ -29,6 +35,19 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+afterEvaluate {
+  publishing {
+    publications {
+      release(MavenPublication) {
+        from components.findByName('release')
+        groupId = 'com.github.wxiangle'
+        artifactId = 'PhotoPicker'
+        version = '1.4'
+      }
+    }
+  }
 }
 
 //apply plugin: 'com.novoda.bintray-release'
