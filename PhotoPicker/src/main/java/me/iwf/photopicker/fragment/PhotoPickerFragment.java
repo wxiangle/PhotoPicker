@@ -202,7 +202,7 @@ public class PhotoPickerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!PermissionsUtils.checkCameraPermission(PhotoPickerFragment.this)) return;
-                if (!PermissionsUtils.checkWriteStoragePermission(PhotoPickerFragment.this)) return;
+//                if (!PermissionsUtils.checkWriteStoragePermission(PhotoPickerFragment.this)) return;
                 openCamera();
             }
         });

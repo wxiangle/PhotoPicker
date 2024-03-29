@@ -52,7 +52,7 @@ public class PhotoPicker {
          * @param requestCode requestCode for result
          */
         public void start(@NonNull Activity activity, int requestCode) {
-            if (PermissionsUtils.checkReadStoragePermission(activity)) {
+            if (PermissionsUtils.checkReadImagesPermission(activity)) {
                 activity.startActivityForResult(getIntent(activity), requestCode);
             }
         }
@@ -63,7 +63,7 @@ public class PhotoPicker {
          */
         public void start(@NonNull Context context,
                           @NonNull android.support.v4.app.Fragment fragment, int requestCode) {
-            if (PermissionsUtils.checkReadStoragePermission(fragment.getActivity())) {
+            if (PermissionsUtils.checkReadImagesPermission(fragment.getActivity())) {
                 fragment.startActivityForResult(getIntent(context), requestCode);
             }
         }
@@ -75,7 +75,7 @@ public class PhotoPicker {
          */
         public void start(@NonNull Context context,
                           @NonNull android.support.v4.app.Fragment fragment) {
-            if (PermissionsUtils.checkReadStoragePermission(fragment.getActivity())) {
+            if (PermissionsUtils.checkReadImagesPermission(fragment.getActivity())) {
                 fragment.startActivityForResult(getIntent(context), REQUEST_CODE);
             }
         }

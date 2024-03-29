@@ -26,4 +26,9 @@ public class PermissionsConstant {
     public static final String[] PERMISSIONS_EXTERNAL_READ = {
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public static final String[] PERMISSIONS_IMAGES_READ = {
+            Manifest.permission.READ_MEDIA_IMAGES
+    };
 }

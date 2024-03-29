@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.22.1'
+        classpath 'io.fabric.tools:gradle:1.25.4'
     }
 }
 apply plugin: 'com.android.application'
@@ -15,13 +15,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "me.iwf.PhotoPickerDemo"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 33
         versionCode 15
         versionName "0.9.7"
     }

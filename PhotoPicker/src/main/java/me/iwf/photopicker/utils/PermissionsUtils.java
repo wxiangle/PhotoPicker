@@ -10,7 +10,10 @@ import android.support.v4.content.ContextCompat;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.READ_MEDIA_IMAGES;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+import me.iwf.photopicker.BuildConfig;
 
 /**
  * Created by donglua on 2016/10/19.
@@ -30,6 +33,35 @@ public class PermissionsUtils {
         if (!readStoragePermissionGranted) {
             ActivityCompat.requestPermissions(activity,
                     PermissionsConstant.PERMISSIONS_EXTERNAL_READ,
+                    PermissionsConstant.REQUEST_EXTERNAL_READ);
+        }
+        return readStoragePermissionGranted;
+    }
+
+
+    public static boolean checkReadImagesPermission(Activity activity) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            return true;
+        }
+        int readStoragePermissionState =
+                0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            readStoragePermissionState = ContextCompat.checkSelfPermission(activity, READ_MEDIA_IMAGES);
+        }else{
+            readStoragePermissionState = ContextCompat.checkSelfPermission(activity, READ_EXTERNAL_STORAGE);
+        }
+
+        boolean readStoragePermissionGranted = readStoragePermissionState == PackageManager.PERMISSION_GRANTED;
+
+        String[] exernalStorageRead = new String[1];
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.TIRAMISU) {
+            exernalStorageRead = PermissionsConstant.PERMISSIONS_EXTERNAL_READ;
+        } else {
+            exernalStorageRead = PermissionsConstant.PERMISSIONS_IMAGES_READ;
+        }
+        if (!readStoragePermissionGranted) {
+            ActivityCompat.requestPermissions(activity,
+                     exernalStorageRead,
                     PermissionsConstant.REQUEST_EXTERNAL_READ);
         }
         return readStoragePermissionGranted;

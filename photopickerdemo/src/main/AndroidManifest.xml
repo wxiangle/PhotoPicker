@@ -21,6 +21,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
+            android:exported="true"
             android:name="me.iwf.PhotoPickerDemo.MainActivity"
             android:label="@string/app_name"
             >
@@ -45,6 +46,6 @@
             android:name="io.fabric.ApiKey"
             android:value="423ff17515038a50c41085cc2dbd0087d2e51cbb" />
     </application>
-
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

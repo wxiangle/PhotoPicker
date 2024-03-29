@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion 33
   buildToolsVersion '27.0.3'
   resourcePrefix "__picker_"
 
@@ -11,7 +11,7 @@ android {
   }
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 28
+    targetSdkVersion 33
   }
   lintOptions {
     abortOnError false
